@@ -7,4 +7,4 @@ venv/
 
 # 민감 파일
 *.json
-.env
+.envencoded.txt
