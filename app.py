@@ -8,6 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from summarize import summarize_text
 import time
 from datetime import datetime, timedelta
+from auth import get_gspread_client
 
 app = Flask(__name__)
 
