@@ -13,12 +13,12 @@ app = Flask(__name__)
 
 @app.route('/crawl-news')
 def crawl_news():
-    # 구글 시트 인증
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('esg-creds.json', scope)
-    client = gspread.authorize(creds)
     yesterday = datetime.today() - timedelta(days=1)
     sheet_name = yesterday.strftime("%Y-%m-%d")
+    
+
+    # 구글 시트 인증
+    client = get_gspread_client()
     sheet = client.open("ESG 뉴스").worksheet(sheet_name)  # 날짜에 따라 동적으로 바꿀 수도 있음
 
     data = sheet.get_all_records()
