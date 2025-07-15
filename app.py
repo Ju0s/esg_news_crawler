@@ -20,7 +20,7 @@ def crawl_news():
 
     # 구글 시트 인증
     client = get_gspread_client()
-    sheet = client.open("ESG 뉴스").worksheet(sheet_name)  # 날짜에 따라 동적으로 바꿀 수도 있음
+    sheet = client.open("ESG 정보 공유 데이터 수집").worksheet(sheet_name)  # 날짜에 따라 동적으로 바꿀 수도 있음
 
     data = sheet.get_all_records()
     service = Service("chromedriver")  # chromedriver 경로
